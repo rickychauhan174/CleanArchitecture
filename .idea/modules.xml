@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CleanArchitecture.iml" filepath="$PROJECT_DIR$/.idea/modules/CleanArchitecture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CleanArchSample.iml" filepath="$PROJECT_DIR$/.idea/modules/CleanArchSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CleanArchSample.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CleanArchSample.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/CleanArchSample.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/CleanArchSample.core.iml" />
     </modules>
   </component>
 </project>
