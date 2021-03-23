@@ -4,16 +4,15 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object NetworkServiceBuilder {
-    private val client = OkHttpClient.Builder().build()
-
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("http://api.openweathermap.org/data/2.5/")
+class NetworkServiceBuilder {
+    private fun basicOkHttpClient() = OkHttpClient.Builder().build()
+    private fun baseUrl() = "http://api.openweathermap.org/data/2.5/"
+    private fun provideRetrofit() = Retrofit.Builder()
+        .baseUrl(baseUrl())
         .addConverterFactory(GsonConverterFactory.create())
-        .client(client)
+        .client(basicOkHttpClient())
         .build()
-
-    fun<T> buildService(service: Class<T>): T{
-        return retrofit.create(service)
+    fun createWeatherApiService(): WeatherApiService {
+        return provideRetrofit().create(WeatherApiService::class.java);
     }
 }

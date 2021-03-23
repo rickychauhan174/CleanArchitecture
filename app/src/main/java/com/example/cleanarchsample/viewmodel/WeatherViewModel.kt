@@ -6,12 +6,12 @@ import com.example.core.domain.WeatherModel
 import com.example.core.interactors.GetWeatherDataUseCase
 import com.example.core.interactors.GetWeatherDataUseCaseImpl
 
-class WeatherViewModel: ViewModel() {
+class WeatherViewModel(private val weatherDataUseCaseImpl: GetWeatherDataUseCaseImpl): ViewModel() {
 
     val weatherLiveData = MutableLiveData<WeatherModel>()
 
     fun getWeatherData(){
-        GetWeatherDataUseCaseImpl().execute(object : GetWeatherDataUseCase.UseCaseCallback{
+        weatherDataUseCaseImpl.execute(object : GetWeatherDataUseCase.UseCaseCallback{
             override fun onDataLoaded(weather: WeatherModel?) {
                 weatherLiveData.value = weather
             }

@@ -4,9 +4,9 @@ import com.example.core.data.datasource.WeatherDataSource
 import com.example.core.data.datasource.WeatherDataSourceImpl
 import com.example.core.domain.WeatherModel
 
-object WeatherRepository {
+class WeatherRepository(private val weatherDataSourceImpl: WeatherDataSourceImpl) {
     fun getWeatherData(city: String, callBack: WeatherCallback) {
-        WeatherDataSourceImpl.weatherRemoteData(
+        weatherDataSourceImpl.weatherRemoteData(
             city,
             object : WeatherDataSource.WeatherDataSourceCallback {
                 override fun onWeatherDataLoadRemote(weather: WeatherModel?) {
