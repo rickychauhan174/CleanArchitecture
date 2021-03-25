@@ -3,9 +3,9 @@ package com.example.core.interactors
 import com.example.core.domain.WeatherModel
 
 interface GetWeatherDataUseCase {
-    interface UseCaseCallback {
+    interface WeatherDataUseCaseCallback {
         fun onDataLoaded(weather: WeatherModel?)
     }
 
-    fun execute(callBack: UseCaseCallback)
+    fun execute(callBack: WeatherDataUseCaseCallback)
 }

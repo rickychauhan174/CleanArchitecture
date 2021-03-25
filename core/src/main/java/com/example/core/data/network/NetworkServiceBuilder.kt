@@ -12,7 +12,8 @@ class NetworkServiceBuilder {
         .addConverterFactory(GsonConverterFactory.create())
         .client(basicOkHttpClient())
         .build()
+
     fun createWeatherApiService(): WeatherApiService {
-        return provideRetrofit().create(WeatherApiService::class.java);
+        return provideRetrofit().create(WeatherApiService::class.java)
     }
 }

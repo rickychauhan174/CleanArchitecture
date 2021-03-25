@@ -1,13 +1,10 @@
 package com.example.cleanarchsample.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cleanarchsample.databinding.ActivityMainBinding
 import com.example.cleanarchsample.viewmodel.WeatherViewModel
-import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private val weatherViewModel: WeatherViewModel by inject()
@@ -19,8 +16,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
     }
 
+    /**
+     *  Update weather data on text view as it gets.
+     */
     private fun observeWeatherData(){
-        weatherViewModel.weatherLiveData.observe(this, androidx.lifecycle.Observer{
+        weatherViewModel.weatherLiveData.observe(this, {
             mBinding.txtTemp.text = it.main.temp.toString()
         })
         weatherViewModel.getWeatherData()

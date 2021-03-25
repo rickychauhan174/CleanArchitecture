@@ -4,8 +4,12 @@ import com.example.core.data.datasource.WeatherDataSource
 import com.example.core.data.datasource.WeatherDataSourceImpl
 import com.example.core.domain.WeatherModel
 
+/**
+ * WeatherRepository
+ * @param weatherDataSourceImpl : di for WeatherDataSourceImpl
+ */
 class WeatherRepository(private val weatherDataSourceImpl: WeatherDataSourceImpl) {
-    fun getWeatherData(city: String, callBack: WeatherCallback) {
+    fun getWeatherData(city: String, callBack: WeatherRepositoryCallback) {
         weatherDataSourceImpl.weatherRemoteData(
             city,
             object : WeatherDataSource.WeatherDataSourceCallback {
@@ -15,7 +19,7 @@ class WeatherRepository(private val weatherDataSourceImpl: WeatherDataSourceImpl
             })
     }
 
-    interface WeatherCallback {
+    interface WeatherRepositoryCallback {
         fun onWeatherLoaded(weather: WeatherModel?)
     }
 }
