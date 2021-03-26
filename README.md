@@ -5,8 +5,8 @@ Implementation of Clean Architecture and Koin library
 ## Layers of Clean Architecture
 
 Clean architecture is also referred to as Onion architecture as it has different layers. As per our requirement, we need to define the layers, however, architecture doesn’t specify the number of layers.
-For a basic idea, let us consider there are 5 layers for now:
 
+For a basic idea, let us consider there are 5 layers for now:
 ### App Layer
 MainActivity & WeatherViewModel : This layer that interacts with the UI.
 
