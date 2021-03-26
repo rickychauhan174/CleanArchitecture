@@ -7,7 +7,7 @@ import com.example.core.interactors.GetWeatherDataUseCaseImpl
 import org.koin.dsl.module.module
 
 /**
- *  Create module and make singleton for all required dependencies in 'core' app module.
+ *  Create module and make all required dependencies singleton(recommended).
  */
 val networkModule = module {
     single { NetworkServiceBuilder() }
